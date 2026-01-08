@@ -1,0 +1,50 @@
+# Backend
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+
+# Flutter
+task_manager_app/.dart_tool/
+task_manager_app/.flutter-plugins
+task_manager_app/.flutter-plugins-dependencies
+task_manager_app/.packages
+task_manager_app/build/
+task_manager_app/.flutter-plugins-dependencies
+task_manager_app/.flutter-plugins
+
+# iOS
+task_manager_app/ios/Pods/
+task_manager_app/ios/.symlinks/
+task_manager_app/ios/Flutter/Flutter.framework
+task_manager_app/ios/Flutter/Flutter.podspec
+
+# Android
+task_manager_app/android/.gradle/
+task_manager_app/android/app/build/
+task_manager_app/android/gradle/
+task_manager_app/android/local.properties
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Archivos de guía (no subir)
+GUIA_COMPLETA_EJECUCION.txt
+GUIA_MYSQL_WORKBENCH.txt
+GUIA_CAPTURAS.txt
+GUIA_SUBIR_A_GIT.txt
+PROMPT_PARA_PDF.txt
+SOLUCION_LOGIN.txt
+
+# Artifacts de Gemini
+.gemini/
