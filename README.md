@@ -2,35 +2,35 @@
 
 Sistema completo de gestión de tareas con app móvil Flutter y backend REST API con autenticación JWT y base de datos MySQL.
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 
 Este proyecto implementa una aplicación full-stack que cumple con todos los requerimientos de un sistema de gestión de tareas moderno:
 
-### ✅ Cumplimiento de Requerimientos
+###  Cumplimiento de Requerimientos
 
 #### App Móvil (Flutter)
-- ✅ Autenticación completa (Login + Registro)
-- ✅ Manejo de sesión con JWT
-- ✅ Persistencia de sesión (SharedPreferences + Secure Storage)
-- ✅ CRUD completo de tareas
-- ✅ Filtrado por estado y prioridad
-- ✅ Búsqueda de tareas
-- ✅ Consumo de API externa (OpenWeather)
-- ✅ Arquitectura en capas (models, services, providers, UI)
-- ✅ Manejo de estados (loading/success/error)
-- ✅ Validación de formularios
+- Autenticación completa (Login + Registro)
+- Manejo de sesión con JWT
+- Persistencia de sesión (SharedPreferences + Secure Storage)
+- CRUD completo de tareas
+- Filtrado por estado y prioridad
+- Búsqueda de tareas
+- Consumo de API externa (OpenWeather)
+- Arquitectura en capas (models, services, providers, UI)
+- Manejo de estados (loading/success/error)
+- Validación de formularios
 
 #### Backend (Node.js + Express + MySQL)
-- ✅ Autenticación con JWT
-- ✅ Endpoints de registro y login
-- ✅ CRUD completo de tareas protegido
-- ✅ Base de datos MySQL con relaciones
-- ✅ Middleware de autenticación
-- ✅ Validación de datos
-- ✅ Manejo de errores
-- ✅ Documentación de API
+-  Autenticación con JWT
+-  Endpoints de registro y login
+-  CRUD completo de tareas protegido
+-  Base de datos MySQL con relaciones
+-  Middleware de autenticación
+-  Validación de datos
+-  Manejo de errores
+-  Documentación de API
 
-## 🏗️ Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 segundavuelta_3erparcial/
@@ -56,7 +56,7 @@ segundavuelta_3erparcial/
     └── README.md             # Documentación de Flutter
 ```
 
-## 🚀 Guía de Instalación Rápida
+##  Guía de Instalación Rápida
 
 ### Prerrequisitos
 
@@ -106,7 +106,7 @@ flutter pub get
 flutter run
 ```
 
-## 🔑 Credenciales de Prueba
+##  Credenciales de Prueba
 
 El database.sql incluye un usuario de prueba:
 
@@ -115,12 +115,12 @@ Email: test@test.com
 Password: test123
 ```
 
-## 📚 Documentación Detallada
+##  Documentación Detallada
 
 - **Backend**: Ver [backend/README.md](backend/README.md)
 - **Flutter**: Ver [task_manager_app/README.md](task_manager_app/README.md)
 
-## 🎯 Características Principales
+##  Características Principales
 
 ### Autenticación
 - Registro de usuarios con validación
@@ -154,7 +154,7 @@ Password: test123
 - Manejo de errores de red
 - Estados de carga
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 ### Backend
 - **Node.js** - Runtime de JavaScript
@@ -174,7 +174,7 @@ Password: test123
 ### APIs Externas
 - **OpenWeather API** - Datos meteorológicos
 
-## 📊 Base de Datos
+##  Base de Datos
 
 ### Modelo de Datos
 
@@ -196,17 +196,17 @@ Password: test123
 - fecha_limite
 - updated_at
 
-## 🔐 Seguridad
+##  Seguridad
 
-- ✅ Contraseñas hasheadas con bcrypt (10 rounds)
-- ✅ JWT con secret key configurable
-- ✅ Tokens almacenados de forma segura en el cliente
-- ✅ Validación de inputs en backend y frontend
-- ✅ Protección contra SQL injection (queries parametrizadas)
-- ✅ CORS configurado
-- ✅ Middleware de autenticación en rutas protegidas
+-  Contraseñas hasheadas con bcrypt (10 rounds)
+-  JWT con secret key configurable
+-  Tokens almacenados de forma segura en el cliente
+-  Validación de inputs en backend y frontend
+-  Protección contra SQL injection (queries parametrizadas)
+-  CORS configurado
+-  Middleware de autenticación en rutas protegidas
 
-## 📱 Pantallas de la App
+##  Pantallas de la App
 
 1. **Splash Screen** - Verificación de sesión
 2. **Login** - Inicio de sesión
@@ -216,7 +216,7 @@ Password: test123
 6. **Detalle de Tarea** - Ver información completa
 7. **Formulario de Tarea** - Crear/Editar tarea
 
-## 🧪 Pruebas
+##  Pruebas
 
 ### Testear Backend
 ```bash
@@ -231,7 +231,7 @@ flutter test
 flutter run    # Ejecutar en emulador/dispositivo
 ```
 
-## 🐛 Troubleshooting Común
+##  Troubleshooting Común
 
 ### Backend no conecta a MySQL
 - Verifica que MySQL esté corriendo
@@ -247,17 +247,17 @@ flutter run    # Ejecutar en emulador/dispositivo
 - Verifica tu API key de OpenWeather
 - La app funciona sin esta característica
 
-## 📈 Mejoras Futuras
+##  Mejoras Futuras
 
-- [ ] Tests unitarios y de integración
-- [ ] Notificaciones push
-- [ ] Modo offline con sincronización
-- [ ] Adjuntar archivos a tareas
-- [ ] Compartir tareas entre usuarios
-- [ ] Temas claro/oscuro
-- [ ] Múltiples idiomas
+-  Tests unitarios y de integración
+-  Notificaciones push
+-  Modo offline con sincronización
+-  Adjuntar archivos a tareas
+-  Compartir tareas entre usuarios
+-  Temas claro/oscuro
+-  Múltiples idiomas
 
-## 👨‍💻 Desarrollo
+##  Desarrollo
 
 Desarrollado como proyecto completo full-stack incluyendo:
 - Diseño de base de datos
@@ -265,10 +265,9 @@ Desarrollado como proyecto completo full-stack incluyendo:
 - Aplicación móvil nativa
 - Documentación completa
 
-## 📄 Licencia
+##  Licencia
 
 MIT License - Libre para uso educativo y comercial
 
 ---
 
-**Nota**: Este es un proyecto completo funcional listo para desarrollo/demostración. Asegúrate de cambiar las claves secretas y configuraciones antes de usar en producción.
