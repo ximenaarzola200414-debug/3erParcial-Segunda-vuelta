@@ -1,0 +1,50 @@
+================================================================================
+    ✅ PROBLEMA SOLUCIONADO - BRANCH RENOMBRADO A 'main'
+================================================================================
+
+El branch ahora está correctamente configurado como 'main'.
+
+EJECUTA ESTE COMANDO AHORA:
+
+git push -u origin main
+
+================================================================================
+TE PEDIRÁ CREDENCIALES:
+================================================================================
+
+Username for 'https://github.com': ximenaarzola200414-debug
+Password for 'https://ximenaarzola200414-debug@github.com': [CONTRASEÑA O TOKEN DE XIMENA]
+
+================================================================================
+SI LE PIDES SU CONTRASEÑA:
+================================================================================
+
+Opción 1: Contraseña de GitHub directamente
+- Le pides su contraseña de GitHub
+- La ingresas (no se verá mientras escribes)
+
+Opción 2: Personal Access Token (MÁS SEGURO)
+- Ximena genera un token en: https://github.com/settings/tokens
+- Click "Generate new token (classic)"
+- Nombre: "Subir proyecto desde otra PC"
+- Expiration: 7 days
+- Permisos: Marcar solo "repo" (marca todos los sub-items automáticamente)
+- Click "Generate token"
+- COPIAR EL TOKEN (solo se muestra una vez)
+- Mandar el token por WhatsApp/mensaje
+- Usar ese token como password
+
+================================================================================
+DESPUÉS DE HACER PUSH:
+================================================================================
+
+Verificar que se subió:
+https://github.com/ximenaarzola200414-debug/3erParcial-Segunda-vuelta
+
+Deberías ver:
+- backend/
+- task_manager_app/
+- README.md
+- .gitignore
+
+¡LISTO! 🚀

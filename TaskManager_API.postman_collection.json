@@ -1,0 +1,636 @@
+{
+    "info": {
+        "_postman_id": "task-manager-api-collection",
+        "name": "Task Manager API - Complete Collection",
+        "description": "Complete API collection for Task Manager backend testing. Includes authentication and full CRUD operations for tasks.\n\n**Test Credentials:**\n- Email: xime@icloud.com\n- Password: 123456",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Login - Success",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "// Save token to environment variable",
+                                    "var jsonData = pm.response.json();",
+                                    "if (jsonData.success && jsonData.data.token) {",
+                                    "    pm.environment.set(\"authToken\", jsonData.data.token);",
+                                    "    console.log(\"Token saved:\", jsonData.data.token);",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"xime@icloud.com\",\n    \"password\": \"123456\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ]
+                        },
+                        "description": "Login with test credentials to obtain JWT token. Token is automatically saved to environment variable."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register - New User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"Test User\",\n    \"email\": \"testuser@example.com\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/register",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "register"
+                            ]
+                        },
+                        "description": "Register a new user account"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Authentication endpoints for login and registration"
+        },
+        {
+            "name": "Tasks - CRUD Operations",
+            "item": [
+                {
+                    "name": "Get All Tasks",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ]
+                        },
+                        "description": "Retrieve all tasks for the authenticated user"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Task by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks",
+                                "1"
+                            ]
+                        },
+                        "description": "Get details of a specific task by ID. Change the ID in the URL as needed."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Task - High Priority",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"titulo\": \"Complete API Testing Documentation\",\n    \"descripcion\": \"Create comprehensive documentation for all API endpoints with examples and screenshots\",\n    \"prioridad\": \"alta\",\n    \"estado\": \"pendiente\",\n    \"fecha_limite\": \"2024-02-15\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ]
+                        },
+                        "description": "Create a new task with high priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Task - Medium Priority",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"titulo\": \"Review Code Quality\",\n    \"descripcion\": \"Perform code review and refactoring for backend services\",\n    \"prioridad\": \"media\",\n    \"estado\": \"en progreso\",\n    \"fecha_limite\": \"2024-02-20\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ]
+                        },
+                        "description": "Create a new task with medium priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Task - Low Priority",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"titulo\": \"Update Dependencies\",\n    \"descripcion\": \"Update npm packages to latest stable versions\",\n    \"prioridad\": \"baja\",\n    \"estado\": \"pendiente\",\n    \"fecha_limite\": \"2024-03-01\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ]
+                        },
+                        "description": "Create a new task with low priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Task - Mark as Done",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"estado\": \"hecha\",\n    \"titulo\": \"Completed Task - Updated via API\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks/2",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks",
+                                "2"
+                            ]
+                        },
+                        "description": "Update task status to 'hecha' (done). Change task ID as needed."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Task - In Progress",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"estado\": \"en progreso\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks",
+                                "1"
+                            ]
+                        },
+                        "description": "Update task status to 'en progreso' (in progress)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Task",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks/5",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks",
+                                "5"
+                            ]
+                        },
+                        "description": "Delete a task by ID. Change the ID in the URL as needed."
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Complete CRUD operations for task management"
+        },
+        {
+            "name": "Tasks - Filters & Search",
+            "item": [
+                {
+                    "name": "Get Tasks - Filter by Estado (Pendiente)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?estado=pendiente",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "estado",
+                                    "value": "pendiente"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with status 'pendiente'"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Filter by Estado (En Progreso)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?estado=en progreso",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "estado",
+                                    "value": "en progreso"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with status 'en progreso'"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Filter by Estado (Hecha)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?estado=hecha",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "estado",
+                                    "value": "hecha"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with status 'hecha' (done)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Filter by Prioridad (Alta)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?prioridad=alta",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "prioridad",
+                                    "value": "alta"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with high priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Filter by Prioridad (Media)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?prioridad=media",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "prioridad",
+                                    "value": "media"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with medium priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Filter by Prioridad (Baja)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?prioridad=baja",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "prioridad",
+                                    "value": "baja"
+                                }
+                            ]
+                        },
+                        "description": "Get only tasks with low priority"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Search by Text",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?search=proyecto",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "proyecto"
+                                }
+                            ]
+                        },
+                        "description": "Search tasks by text in title and description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Tasks - Combined Filters",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{authToken}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/tasks?estado=pendiente&prioridad=alta",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tasks"
+                            ],
+                            "query": [
+                                {
+                                    "key": "estado",
+                                    "value": "pendiente"
+                                },
+                                {
+                                    "key": "prioridad",
+                                    "value": "alta"
+                                }
+                            ]
+                        },
+                        "description": "Combine multiple filters: get pending tasks with high priority"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Filter and search operations for tasks"
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000",
+            "type": "string"
+        },
+        {
+            "key": "authToken",
+            "value": "",
+            "type": "string"
+        }
+    ]
+}
