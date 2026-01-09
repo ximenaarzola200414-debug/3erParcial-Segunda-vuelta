@@ -111,8 +111,8 @@ flutter run
 El database.sql incluye un usuario de prueba:
 
 ```
-Email: test@test.com
-Password: test123
+Email: xiarzola@gmail.com
+Password: 123456
 ```
 
 ##  Documentación Detallada
